@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Sparkles, RotateCcw, DollarSign, Trophy } from 'lucide-react';
+import { Sparkles, RotateCcw } from 'lucide-react';
 import LotterySection from './components/LotterySection';
+import { FloatingDecorations, GradientOrb } from './components/DecorativeElements';
 import { generateMultipleGames, LotteryGame } from './utils/lottery';
 
 function App() {
@@ -18,24 +19,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      <div className="container mx-auto px-4 py-8 md:py-12">
-        <header className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Trophy className="w-10 h-10 md:w-12 md:h-12 text-yellow-400" />
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
-              Lottery Master Unlocked
-            </h1>
-            <DollarSign className="w-10 h-10 md:w-12 md:h-12 text-green-400" />
-          </div>
-          <p className="text-xl md:text-2xl text-gray-300 mb-6">
-            Your Lucky Number Generator for Powerball & Mega Millions
-          </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+      <GradientOrb />
+      <FloatingDecorations />
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+        <header className="text-center mb-16">
+          <div className="mb-6">
+            <h1 className="text-5xl md:text-7xl font-playfair font-bold text-white mb-3">
+              <span className="text-gradient-gold">Lottery Master</span>
+            </h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-poppins">
+              Your Lucky Number Generator for Powerball & Mega Millions
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <button
               onClick={handleGenerate}
-              className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all text-lg"
+              className="button-luxury relative group flex items-center gap-3 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-600 hover:from-emerald-600 hover:via-green-600 hover:to-teal-700 text-white font-bold font-poppins py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all text-lg"
             >
               <Sparkles className="w-6 h-6" />
               Generate Numbers
@@ -43,7 +45,7 @@ function App() {
 
             <button
               onClick={handleReset}
-              className="flex items-center gap-2 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all text-lg"
+              className="button-luxury relative group flex items-center gap-3 bg-gradient-to-r from-slate-600 via-slate-700 to-slate-800 hover:from-slate-700 hover:via-slate-800 hover:to-slate-900 text-white font-bold font-poppins py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all text-lg"
             >
               <RotateCcw className="w-6 h-6" />
               Reset / Clear
@@ -67,11 +69,11 @@ function App() {
           />
         </div>
 
-        <footer className="mt-12 text-center text-gray-400 text-sm">
-          <p className="mb-2">
+        <footer className="mt-16 text-center text-gray-400 text-sm font-poppins">
+          <p className="mb-2 text-gray-500">
             Numbers are randomly generated. Please verify with official lottery rules.
           </p>
-          <p>Good luck and play responsibly!</p>
+          <p className="text-gray-500">Good luck and play responsibly!</p>
         </footer>
       </div>
     </div>
